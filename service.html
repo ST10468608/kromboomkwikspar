@@ -1,26 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Kromboom kwikspar</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport"
+        content="width=device-width,initial-scale=1" />
+        <title>Kromboom kwikspar-Grocery Menu></title> 
+        <link rel="stylesheet" href="css/mystyle.css">
     </head>
-    <header>
-        <h1>Kromboom kwikspar| Our services and products</h1>
-    </header>
-     <nav>
-        <a href="#services ">services</a>
-        <a href="#products">products</a>
-        
-     </nav>
-     <section id="products" class="category">
-        <h2>Our Products</h2>
-        <p>They offer wide range of groceries that we need in our everyday lives such as:</p>
-        <ul>
-            <li>Deli/Bakery </li>
-            <li>Butchery/Perishables </li>
-            <li>Fruit / Vegetables </li>
-            <li>Groceries</li>
+    <body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#"
+            aria-label="Kromboom Kwikspar Home"> Kromboom Kwikspar</a>
+
+            <!--Mobile toggle (checkbox hack)-->
+            <input id="nav-toggle"
+            type="checkbox" class="nav-toggle"
+            aria-hidden="true">
+            <label for="nav-toggle"
+            aria-hidden="true">
+            <span></span>
+            </label>
+
+            <nav class="main-nav"
+            aria-label="Main navigation"
+              <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+
+                <!--Category dropdown-->
+                <li class="has-dropdown">
+                    <a href="#"
+                    class="dropdown-toggle"
+                    aria-haspopup="true"
+                    aria-expanded="false">Categories </a>
+                                <ul class="dropdown"
+                         are-label="Grocery Categories">
+            <li><a href="#">Fresh Produce</a> </li>
+            <li><a href="#"></a> Butchery/Perishables </li>
+            <li><a href="#"></a>Fruit / Vegetables </li>
+            <li><a href="#"></a>Dairy & Eggs</li>
+            <li><a href="#"></a>Bakery</li>
+            <li><a href="#"></a>Drinks</li>
         </ul>
+                </li>
+
+                <li><a href="#">Offers</a></li>
+                <li><a href="#">Contact</a></li>
+
+        <!--Search form-->
+        <form class="search-form"
+        role="search" action="#" method="get">
+        <label for="search"
+      class="visually-hidden">Search products</label>
+
+                  <input id="search" name="q"
+                  type="search" placeholder="Search Grocery items...">
+                     <bottom type="submit">Search</bottom>
+        </form> 
+    </nav>
+</div>
+
+<main class="container">
+    <section class="Menu-intro">
+        <h1>Grocery Menu </h1>
+        <p>Browse categories or search for items.Click a product to view details</p>
+    </section>
+
+    <!--Products grid-->
+    <section class="products-grid"
+ aria-label="Product list">
+    <!--Example product card-->
+    <article class="product-card">
+        <img src="images/redapples.jpg"
+      alt="Red Apples" (1kg) width="320"
+      height="200">
+      <div class="product-info">
+        <h2 class="product-name">Red apples(1kg)</h2>
+        <p class="product-desc">Crisp and sweet Spar apples</p>
+        <div class="product-meta">
+            <span class="price"> R29.99 </span>
+
+              <button class="add-btn"
+              type="button">Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card">
+        <img src="images/bread.jpg"
+        alt="Whole loaf of Bread" width="320"
+        height="200">
+        <div class="product-info">
+            <h2 class="product-name">Whole loaf of bread</h2>
+            <p class="product-desc">Fresh  bakery loaf</p>
+            <div class="product-meta">
+                <span class="price">R18.50</span>
+                       <button class="add-btn"
+                       type="button">Add</button>
+            </div>
+        </div>
+    </article>
+
+    <article class="product-card">
+        <img src="images/butcher.jpg"
+        alt="butchery" width="320"
+        height="200">
+        <div class="product-info">
+            <h2 class="product-name">Butchery</h2>
+            <p class="product-desc">beef steak</p>
+            <div class="product-meta">
+                <span class="price">R49,00per kg></span>
+                <button class="add-btn"
+                type="button">Add</button>
+            </div>
+        </div>
+    </article>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <p> &copy;<span id="year"></span>
+            Kromboom kwikspar- Demo Menu</p>
+        </div>
+    </footer>
+   
+       <script>
+        // Small script to set year and improve dropdown aria for keyboard users
+
+        Document.getElementById('year').textContent
+        =new Date() .getFullYear ();
+         
+        // Improve accessibility: toggle ari-expanded for the categoryies list on focus/click
+         
+         const dropdownToggle =
+         document.querySelector ('.dropdown-toggles')
+         ;
+          const dropdown=
+          document.querySelector ('.has-dropdown .dropdown');
+
+          if (dropdownToggle) {
+
+            dropdownToggle.AddEventListener ('click',
+            (e)=> {
+                e.preventDefault ();
+                 const expanded=
+                 dropdownToggle.getAttribute ('aria-expanded'
+                 ) ==='true';
+                 dropdownToggle.setAttribute ('aria-expanded',!expanded);
+                  dropdown.classList.toggle ('open');
+            });
+            }
+          
+       </script>
+    </article>
      </section>
+
 
      <section id="services" class="category">
         <h2>Our Services</h2>
