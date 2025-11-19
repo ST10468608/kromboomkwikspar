@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+   <title></title>
     <link rel="stylesheet" href="css/mystyle.css">
-</head>
+
+  <!--Leaflet CSS-->
+        <link rel="stylesheet"
+         href="https://unpkg.com/leaflet/dist/leaflet.css" />
+           
 </head>
 <body>
+ <div id="map" style="height: 400px;"></div>
+
+         <!--Leaflet JS-->
+
+      <script
+       src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+       <script>
+           // Set up the map and view
+      var map =
+      L.map('map').setView([-33.9249, 18.4241],13);
+
+      // Coordinates above = Cape Town (example)
+
+      L.tileLayer('https://{s}.tile.openstreetamap.org/{z}/{x}/{y}.png',{
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo (map);
+
+      //Add a marker 
+      var marker = L.marker = ([-33.9249,18.4241]).addTo (map);
+
+      // Add popup 
+      marker.bindPopup ("<b>Hello!</b><br>This is Cape Town."). openPopup();
+      </script>
+
+    <div class="contact-container fade-in">
+
+        <h1 class="slide-right">Contact Us </h1>
     <h1>Contact Information Of the Store</h1>
 
     <div class="Contact- Info">
         <p><strong>Company Name:</strong>Kromboom Kwikspar</p>
         <p><strong>Address:</strong> Kromboom Gardens,Kromboom Rd,Crawford,Cape Town ,7780</p>
         <p><strong>Phone:</strong> 021 697 2834</p>
-        <p><strong>Email:</strong> kromboom5@retail.spar.co.za</p>
+        <p><strong> kromboom5@retail.spar.co.za</strong></p>
 
      <!--Header-->
      <header class="header">
@@ -64,6 +96,52 @@
 
     </div>
     </section>
+    <!--Accordion FAQ-->
+    <div class="accordion-section fade-in">
+
+    <!--Modal-->
+    <div id="successModal" class="modal">
+        <div class="modal-content pop-in">
+            <span class="close">&times;</span>
+            <h3>Message Send!</h3>
+            <p>Thank you for contacting us. We'll reply soon.</p>
+        </div>
+    </div>
+
+    <form id="contactForm">
+        <input type="text" name="name"
+        placeholder="Your Name" required>
+        <input type="email" name="email"
+        placeholder="Your Email" required>
+        <textarea name="message"
+        placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("contactForm").add
+        EventListener("submit",function(e){
+            e.preventDefault();//stop page reload
+
+            const formData = new formData(this);
+
+            fetch("process.php",{
+                method: "POST",
+                body: FormData
+            })
+            .then (response => response.text())
+            .then(data =>{
+
+         document.getElementById("result").innerHTML = data;      
+            })
+            .catch(error =>{
+                document.getElementById("result").innerHTML = "Error submitting form.";
+            });
+        });
+    </script>
+
     <!--Footer-->
     <footer class="footer">
         <p>&copy; 2025 Our Shop. All Rights Reserved.</p>
